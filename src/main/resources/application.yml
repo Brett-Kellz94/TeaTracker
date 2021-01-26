@@ -1,0 +1,16 @@
+server:
+  port: ${custom_port:8080}
+spring:
+  codec:
+    max-in-memory-size: 10MB
+  application:
+    name: ${application_name:TeaTracker}
+  datasource:
+    driverClassName: ${datasource_driverClassName:org.postgresql.Driver}
+    url: ${datasource_url:jdbc:postgresql://localhost:5432/postgres?qcforce_training=qcforce_training}
+    username: ${datasource_username:postgres}
+    password: ${datasource_password:password}
+  jpa:
+    properties:
+      hibernate:
+        dialect: ${jap_properties_hibernate_dialect:org.hibernate.dialect.PostgreSQLDialect}

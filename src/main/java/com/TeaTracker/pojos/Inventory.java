@@ -38,12 +38,52 @@ public class Inventory {
 	private String teaType;
 
 	public Inventory(int itemId, String itemName, int quantity, String teaType) {
-		super();
 		this.itemId = itemId;
 		this.itemName = itemName;
 		this.quantity = quantity;
 		this.teaType = teaType;
 	}
+
+
+	public Inventory() {
+		super();
+	}
+
+
+	public int getItemId() {
+		return itemId;
+	}
+
+
+	public void setItemId(int itemId) {
+		this.itemId = itemId;
+	}
+
+
+	public String getItemName() {
+		return itemName;
+	}
+
+	public void setItemName(String itemName) {
+		this.itemName = itemName;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+	public String getTeaType() {
+		return teaType;
+	}
+
+	public void setTeaType(String teaType) {
+		this.teaType = teaType;
+	}
+	
 	
 	
 }

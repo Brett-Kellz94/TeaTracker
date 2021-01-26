@@ -1,47 +1,25 @@
-package com.TeaTracker.pojos;
+package com.TeaTracker.dto;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Column;
+import com.TeaTracker.pojos.User;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Entity 
-@Table(name= "user_account")
-
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-public class User {
+public class UserDto implements Dto<User>{
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	
-	@Column(name = "userId")
 	private int userId;
-
-	@Column(name = "first_name")
+	
 	private String firstName;
 	
-	@Column(name = "last_name")
 	private String lastName;
 	
-	@Column(name = "username")
 	private String userName;
 	
-	@Column(name = "passphrase")
 	private String passPhrase;
 	
-	@Column(name = "auth_level")
 	private int authLevel;
+	
+	
 
-	public User(int userId, String firstName, String lastName, String userName, String passPhrase, int authLevel) {
+	public UserDto(int userId, String firstName, String lastName, String userName, String passPhrase, int authLevel) {
+		super();
 		this.userId = userId;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -50,25 +28,29 @@ public class User {
 		this.authLevel = authLevel;
 	}
 
-	
-	
-	public User() {
-		super();
+    public UserDto(User user) {
+    	this.userId = user.getUserId();
+    	this.firstName = user.getFirstName();
+    	this.lastName = user.getLastName();
+    	this.userName = user.getUserName();
+    	this.passPhrase = user.getPassPhrase();
+    	this.authLevel = user.getAuthLevel();
+    }
+
+	@Override
+	public User toPojo() {
+		User user = new User();
+		
+		return user;
 	}
-
-
 
 	public int getUserId() {
 		return userId;
 	}
 
-
-
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
-
-
 
 	public String getFirstName() {
 		return firstName;
@@ -110,6 +92,10 @@ public class User {
 		this.authLevel = authLevel;
 	}
 	
-	
-	
+	   @Override
+	    public String toString() {
+	        return "UserDto [firstName=" + firstName + ", lastName=" + lastName + ", userName=" + userName + ", passPhrase="
+	                + passPhrase + ", authLevel=" + authLevel + "]";
+	    }
+
 }

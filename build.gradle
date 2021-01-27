@@ -25,6 +25,12 @@ dependencies {
     compileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.16'
     annotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.16'
     
+    	// https://mvnrepository.com/artifact/org.mockito/mockito-all
+	testCompile group: 'org.mockito', name: 'mockito-all', version: '1.10.19'
+	
+	    // Use JUnit test framework
+    testImplementation 'junit:junit:4.12'
+    
 	testCompileOnly group: 'org.projectlombok', name: 'lombok', version: '1.18.16'
     testAnnotationProcessor group: 'org.projectlombok', name: 'lombok', version: '1.18.16'
 	
